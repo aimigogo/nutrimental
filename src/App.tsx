@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "../src/Components/ProtectedRoute";
+import AdminLoginPage from "./Screens/Admin/LoginPage/AdminLoginPage";
+import HomePage from "../src/Screens/HomePage";
+import AdminsHomePage from "./Screens/Admin/HomePage/AdminsHomePage";
+import BlogPage from "./Screens/BlogPage";
+import AboutPage from "./Screens/AboutPage";
+import ContactPage from "./Screens/ContactPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    return (
+        <AuthProvider>
+            <BrowserRouter>
+                <Routes>
+                    {/* Public */}
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/dashboard" element={<HomePage />} />
+                    <Route path="/admin-login" element={<AdminLoginPage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                    <Route path="/blog" element={<BlogPage />} />
+
+                    {/* mysite.gr/admin — admins only */}
+                    <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
+                        <Route path="/adminDashboard" element={<AdminsHomePage />} />
+                    </Route>
+
+                    {/* Fallback */}
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
+            </BrowserRouter>
+        </AuthProvider>
+    );
 }
-
-export default App;

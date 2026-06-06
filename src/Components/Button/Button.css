@@ -1,0 +1,25 @@
+.Button {
+    background: #478048;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 70px;
+    height: 30px;
+}
+.Button-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 30px;
+    background: #478048;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    gap: 6px;
+}

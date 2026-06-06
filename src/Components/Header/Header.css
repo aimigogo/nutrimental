@@ -1,0 +1,95 @@
+.Header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f5f5f5;
+    padding: 0.75rem 1rem;
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.Header-Logo-Label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #478048;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.Header-Logo-Label label {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.Header-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+}
+
+.Header-list li {
+    list-style: none;
+}
+
+.Header-list a {
+    text-decoration: none;
+    color: #478048;
+    font-weight: 400;
+}
+.Header-list-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+}
+
+.Header-list-mobile li {
+    list-style: none;
+}
+
+.Header-list-mobile a {
+    text-decoration: none;
+    color: #478048;
+    font-weight: 400;
+}
+
+
+.sidebar-item {
+    cursor: pointer;
+}
+
+.Header-desktop {
+    display: block;
+}
+
+.Header-mobile {
+    display: none;
+}
+
+.Header-wrapper-mobile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #f5f5f5;
+    padding: 0.75rem 1rem;
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+@media (max-width: 768px) {
+    .Header-desktop {
+        display: none;
+    }
+
+    .Header-mobile {
+        display: block;
+    }
+}
