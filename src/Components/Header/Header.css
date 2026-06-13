@@ -15,6 +15,7 @@
     color: #478048;
     font-size: 1rem;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .Header-Logo-Label label {
@@ -49,7 +50,33 @@
     margin: 0;
     padding: 0;
 }
-
+.Header-list-mobile-container {
+    display: block;
+    position: fixed;
+    top: 30%;
+    right: 30%;
+    background: white;
+    height: 23vh;
+    width: 34vw;
+    z-index: 100;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+}
+.close-modal{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.Modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+}
 .Header-list-mobile li {
     list-style: none;
 }
@@ -92,4 +119,19 @@
     .Header-mobile {
         display: block;
     }
+}
+
+.Burger-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 10vw;
+    height: 2vh;
+    color: #478048;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    gap: 6px;
+    background: none;
 }

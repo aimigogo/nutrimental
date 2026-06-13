@@ -1,17 +1,24 @@
 import {NavLink} from "react-router-dom";
 import PrimaryButton from "../Button/PrimaryButton";
+import React from "react";
 
 interface DesktopHeaderProps {
     activeItem: string;
     role?: string;
     itemClicked: (item: string) => void;
     handleLogoutClick: () => void;
+    toggleModal: () => void;
 }
 
-export default function MobileHeader({activeItem, itemClicked, role, handleLogoutClick}: DesktopHeaderProps) {
+export default function MobileMenu({activeItem, itemClicked, role, handleLogoutClick,toggleModal}: DesktopHeaderProps) {
     return (
         <>
-            <div>
+            <div className="Header-list-mobile-container">
+                <div className="close-modal">
+                    <button  className={"Burger-button"} type={"button"} onClick={toggleModal}>
+                        <i className={`fa fa-close fa-sm`}></i>
+                    </button>
+                </div>
                 <ul className="Header-list-mobile">
                     <li
                         className={`sidebar-item ${activeItem === 'dashboard' || activeItem === 'adminDashboard' ? 'active' : ''}`}

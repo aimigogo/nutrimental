@@ -7,14 +7,21 @@ interface DesktopHeaderProps {
     role?: string;
     itemClicked: (item: string) => void;
     handleLogoutClick: () => void;
+    LogoClicked: (role: string | undefined) => void;
 }
 
-export default function DesktopHeader({activeItem, itemClicked, role, handleLogoutClick}: DesktopHeaderProps) {
+export default function DesktopHeader({
+                                          activeItem,
+                                          itemClicked,
+                                          role,
+                                          handleLogoutClick,
+                                          LogoClicked
+                                      }: DesktopHeaderProps) {
     return (
         <>
             <div className="Header-wrapper">
                 <div className="Header-Logo-Label"
-                     onClick={() => itemClicked(role === 'admin' ? 'adminDashboard' : 'dashboard')}>
+                     onClick={() => LogoClicked(role)}>
                     <Logo/>
                     <label>Nutrimental Diet</label>
                 </div>

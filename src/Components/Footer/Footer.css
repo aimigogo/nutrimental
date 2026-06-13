@@ -1,13 +1,99 @@
-.Footer-wrapper{
+.Footer-wrapper {
     display: flex;
+    align-items: center;
     flex-direction: row;
+    justify-content: space-between;
+    background: #f5f5f5;
+    padding: 0.75rem 1rem;
     position: relative;
+    height: 15vh;
+    border-top: 1px solid #e5e5e5;
+    bottom: 0;
+}
+.Footer-desktop {
+    display: block;
 }
 
-.Footer-logo{
+.Footer-mobile {
+    display: none;
+}
+@media (max-width: 768px) {
+    .Footer-desktop {
+        display: none;
+    }
+
+    .Footer-mobile {
+        display: block;
+    }
+}
+.Footer-logo {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 60px;
     position: absolute;
+}
+
+.Logo-Label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #478048;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.Footer-body__categories-labels {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20rem;
+    position: absolute;
+    right: 8%;
+    top: 20%;
+}
+
+.Category-label {
+    color: #4d4277;
+    font-weight: 400;
+}
+
+.Footer-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 15px;
+}
+
+.Footer-body-category {
+    display: flex;
+    align-items: center;
+    height: 0vh;
+    justify-content: center;
+    flex-direction: column;
+}
+.Social-icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    position: absolute;
+    top: 17px;
+}
+
+.Social-icons a {
+    color: #478048;
+    font-size: 1.5rem;
+    transition: color 0.2s ease;
+    text-decoration: none;
+}
+
+.Social-icons a:hover {
+    color: #4d4277;
 }

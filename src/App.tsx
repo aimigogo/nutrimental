@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import {AuthProvider} from "./context/AuthContext";
 import ProtectedRoute from "../src/Components/ProtectedRoute";
 import AdminLoginPage from "./Screens/Admin/LoginPage/AdminLoginPage";
 import HomePage from "../src/Screens/HomePage";
@@ -14,7 +14,7 @@ export default function App() {
             <BrowserRouter>
                 <Routes>
                     {/* Public */}
-                    <Route path="/" element={<HomePage />} />
+                    <Route path="/dashboard" element={<HomePage />} />
                     <Route path="/dashboard" element={<HomePage />} />
                     <Route path="/admin-login" element={<AdminLoginPage />} />
                     <Route path="/about" element={<AboutPage />} />

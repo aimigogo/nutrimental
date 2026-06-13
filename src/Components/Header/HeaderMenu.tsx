@@ -3,8 +3,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 import {useAuth} from "../../context/AuthContext";
 import "./Header.css"
 import DesktopHeader from "./DesktopHeader";
-import MobileHeader from "./MobileHeader";
-import PrimaryButton from "../Button/PrimaryButton";
+import MobileMenu from "./MobileMenu";
 import {ReactComponent as Logo} from "../../Assets/HeaderLogo.svg";
 
 
@@ -46,23 +45,42 @@ export default function HeaderMenu() {
     const toggleModal = () => {
         setModalVisible(!modalVisible);
     }
+    const LogoClicked = (role: string | undefined) => {
+        navigate(role === 'admin' ? '/adminDashboard' : '/dashboard')
+        handleItemClick(role === 'admin' ? '/adminDashboard' : '/dashboard')
+    }
     return (
         <>
             <div className="Header-desktop">
                 <DesktopHeader activeItem={activeItem} role={user?.role} itemClicked={handleItemClick}
-                               handleLogoutClick={handleLogout}/>
+                               handleLogoutClick={handleLogout} LogoClicked={LogoClicked}/>
             </div>
             <div className="Header-mobile">
                 <div className="Header-wrapper-mobile">
-                    <div className="Header-Logo-Label">
+                    <div className="Header-Logo-Label" onClick={() => LogoClicked(user?.role)}>
                         <Logo/>
                         <label>Nutrimental Diet</label>
                     </div>
-                    <PrimaryButton icon={"bars"} onClick={toggleModal} type={"button"} iconSize={"fa-sm"}/>
-                    {modalVisible &&
-                        <MobileHeader activeItem={activeItem} role={user?.role} itemClicked={handleItemClick}
-                                      handleLogoutClick={handleLogout}/>
-                    }
+                    <div>
+                        <button  className={"Burger-button"} type={"button"} onClick={toggleModal}>
+                            <i className={`fa fa-bars fa-sm`}></i>
+                        </button>
+                        {modalVisible && (
+                            <>
+                                <div
+                                    className="Modal-backdrop"
+                                    onClick={toggleModal}
+                                />
+                                <MobileMenu
+                                    activeItem={activeItem}
+                                    role={user?.role}
+                                    itemClicked={handleItemClick}
+                                    handleLogoutClick={handleLogout}
+                                    toggleModal={toggleModal}
+                                />
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
         </>
